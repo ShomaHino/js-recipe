@@ -1,3 +1,7 @@
+.transition {
+  transition: all 1s;
+}
+
 .square {
   width: 100px;
   height: 100px;
