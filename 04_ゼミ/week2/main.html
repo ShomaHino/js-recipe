@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自販機</title>
+  </head>
+  <body>
+    <h1>自販機</h1>
+    <section>
+      <h3>買った商品</h3>
+      <div id="display-items"></div>
+    </section>
+    <section>
+      <h3>自販機にお金を入れる</h3>
+      <button id="add-button-100">100円入れる</button>
+      <h4>↓財布↓</h4>
+      <div id="display-saifu">1000</div>
+      <h4>↓投入金額↓</h4>
+      <div id="display-jihanki-money">0</div>
+    </section>
+    <section>
+      <h3>商品を買う</h3>
+      <button id="buy-button-tea">お茶(100円)</button>
+    </section>
+
+    <script>
+      // HTML要素を取得する
+      const buyButtonTea = document.getElementById("buy-button-tea")
+      const displayItems = document.getElementById("display-items")
+
+      // buyButtonTea を押した時の処理
+      buyButtonTea.onclick = function () {
+        displayItems.textContent += "☕"
+      }
+      addButton100.onclick = function () {
+        saifu -= 100
+        jihankiMoney += 100
+        displaysaifu.textContent = saifu
+        displayjihankimoney.textContent = jihankiMoney
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Quiz!!</h1>
+    <div>Who is the bassist in ONEOKROCK</div>
+    <button id="taka">taka</button>
+    <button id="toru">toru</button>
+    <button id="ryota">ryota</button>
+    <button id="tomoya">tomoya</button>
+    <div>The answer is ...</div>
+    <div id="result"></div>
+    <script>
+      const button1 = document.getElementById("taka")
+      const button2 = document.getElementById("toru")
+      const button3 = document.getElementById("ryota")
+      const button4 = document.getElementById("tomoya")
+      let result = document.getElementById("result")
+
+      button1.onclick = function () {
+        result.textContent = "ryota! you aren't right. He is the Vocalist"
+      }
+      button2.onclick = function () {
+        result.textContent = "ryota! you aren't right. He is the Guiturist"
+      }
+      button3.onclick = function () {
+        result.textContent = "ryota! you are right. He is the Bassist"
+      }
+      button4.onclick = function () {
+        result.textContent = "ryota! you aren't right. He is the Drumer"
+      }
+    </script>
+  </body>
+</html>
