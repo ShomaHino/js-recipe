@@ -1,6 +1,6 @@
 const quizText = document.getElementById("quiz-text")
 const quizImage = document.getElementById("quiz-image")
-const box = document.getElementById("box")
+const choicesContainer = document.getElementById("choices-container")
 const feedback = document.getElementById("feedback")
 const photo = document.getElementById("photo")
 
@@ -31,36 +31,41 @@ const quiz = {
     },
   ],
 }
-//buttonをリストの数だけつくる関数
-const createbutton = function () {
-  for (
-    let i = 0;
-    i < quiz.choices.length;
-    i++ //配列は０から！！
-  ) {
-    let button = document.createElement("button")
-    button.textContent = quiz.choices[i].text
-    box.appendChild(button)
-    button.textContent = quiz.choices[i].text
-    //クリック時のfeedbackをquizと紐づけ
-    button.onclick = function (i) {
-      feedback.textContent = quiz.choices[i].feedback
-      photo.src = quiz.choices[i].feedbackphoto
-    }
-  }
-}
 
 // quiz を画面に表示する関数
 const reloadQuiz = function () {
   // 問題文を表示
   quizText.textContent = "Q. " + quiz.text
+
   // 画像を表示
   quizImage.src = quiz.image
 
-  createbutton()
+  // クイズの選択肢を読み取って画面に表示する
+  for (let i = 0; i < quiz.choices.length; i++) {
+    const button = createChiceButton(quiz.choices[i], i)
+    choicesContainer.appendChild(button)
+  }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+// choiceNumber番目の選択肢を選択
+const choose = function (choiceNumber) {
+  // フィードバックを表示
+  feedback.textContent = quiz.choices[choiceNumber].feedback
+  photo.src = quiz.choices[choiceNumber].feedbackphoto
+}
+
+// choiceNumber番目の選択肢のボタンを作る関数
+const createChiceButton = (choice, choiceNumber) => {
+  const button = document.createElement("button")
+  // 選択肢（ボタン）の中身をセットする
+  button.textContent = choice.text
+  // 選択肢（ボタン）をクリックした時に実行する関数をセットする
+  button.onclick = function () {
+    choose(choiceNumber)
+  }
+  // 生成したボタンをreturnする
+  return button
+}
 
 // reloadQuiz関数 を実行して、クイズを画面に表示する
 reloadQuiz()
